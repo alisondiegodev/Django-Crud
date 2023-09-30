@@ -1,0 +1,23 @@
+{% extends 'root/base.html' %}
+
+{% block title %} Titulo {% endblock %}
+
+{% block content %}
+
+<div class="col-8 mx-auto p-4">
+  <form class="d-flex flex-column gap-2" action="/store" method="POST">
+    {% csrf_token %}
+  
+    <label for="name">Name</label>
+    <input type="text" name="nome" />
+  
+    <label for="price">Price</label>
+    <input type="number" min="1" name="price" />
+  
+    <label for="category">Category</label>
+    <input type="text" name="categoria" />
+    <button type="submit">Create</button>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "root/base.html" %} 
+
+{% block content %}
+
+<div class="col-8 mx-auto border p-4 rounded-3">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+         {% for produto in produtos %}
+         <tr>
+            <th scope="row">{{produto.id}}</th>
+            <th scope="row">{{produto.nome}}</th>
+            <th scope="row">{{produto.price}}</th>
+            <th scope="row">{{produto.categoria}}</th>
+            
+          </tr>
+
+         {% endfor %}
+          
+          
+        </tbody>
+      </table>
+    </div>
+
+{% endblock %}
