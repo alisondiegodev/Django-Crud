@@ -1,21 +1,30 @@
-{% extends 'root/base.html' %}
-{% block title %}Editar{% endblock %}
+{% extends 'root/base.html' %} {% block title %}Editar{% endblock %}
 {% block content %}
 
 <div class="col-8 mx-auto p-4">
-    <form class="d-flex flex-column gap-2" action="/store-edit/{{produto.id}}" method="POST">
-      {% csrf_token %}
-    
+  <form class="d-flex flex-column gap-2" action="/store-edit/{{produto.id}}"
+    method="POST">
+    {% csrf_token %}
+    <div class="form-group">
       <label for="name">Name</label>
-      <input value="{{produto.nome}}" type="text" name="nome" />
-    
+      <input class="form-control" value="{{produto.nome}}" type="text"
+        name="nome" />
+    </div>
+
+    <div class="form-group">
       <label for="price">Price</label>
-      <input value="{{produto.price}}" type="number" min="1" name="price" />
-    
+      <input class="form-control" value="{{produto.price}}" type="number"
+        min="1" name="price" />
+    </div>
+
+    <div class="form-group">
       <label for="category">Category</label>
-      <input value="{{produto.categoria}}" type="text" name="categoria" />
-      <button type="submit">Create</button>
-    </form>
-  </div>
+      <input class="form-control" value="{{produto.categoria}}" type="text"
+        name="categoria" />
+    </div>
+
+    <button class="btn btn-secondary shadow" type="submit">Create</button>
+  </form>
+</div>
 
 {% endblock %}
