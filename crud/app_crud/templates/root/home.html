@@ -10,6 +10,7 @@
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Category</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -19,8 +20,12 @@
             <th scope="row">{{produto.nome}}</th>
             <th scope="row">{{produto.price}}</th>
             <th scope="row">{{produto.categoria}}</th>
-            
+            <th scope="row" >
+                <button class="btn btn-primary" id="{{produto.id}}"  onclick="edit(this)" ><box-icon color="white" name='edit'></box-icon></i></button>
+                <button class="btn btn-danger" id="{{produto.id}}"  onclick="del(this)" ><box-icon color="white" name='trash' ></box-icon></button>
+            </th>
           </tr>
+          
 
          {% endfor %}
           
@@ -28,5 +33,15 @@
         </tbody>
       </table>
     </div>
+    <script>
+        function edit(e) {
+            let id = e.getAttribute('id')
+            window.location.href = window.location.origin + '/edit/' + id
+        }
+        function del(e) {
+            let id = e.getAttribute('id')
+            window.location.href = window.location.origin + '/delete/' + id
+        }
+    </script>
 
 {% endblock %}
